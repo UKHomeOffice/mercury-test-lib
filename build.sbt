@@ -44,9 +44,3 @@ libraryDependencies ++= Seq(
   "org.specs2" %% "specs2-junit" % `specs2-version` withSources(),
   "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
-
-assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
-  case PathList(ps @ _*) if ps.last endsWith ".java" => MergeStrategy.discard
-  case _ => MergeStrategy.first
-}
