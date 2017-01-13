@@ -31,17 +31,16 @@ resolvers ++= Seq(
 )
 
 val `specs2-version` = "3.8.6"
-val `scalactic-version` = "3.0.1"
+val `scalatest-version` = "3.0.1"
 
 libraryDependencies ++= Seq(
-  "org.scalactic" %% "scalactic" % `scalactic-version` withSources(),
   "org.clapper" %% "grizzled-slf4j" % "1.3.0",
   "ch.qos.logback" % "logback-classic" % "1.1.8",
   "org.specs2" %% "specs2-core" % `specs2-version` withSources(),
   "org.specs2" %% "specs2-mock" % `specs2-version` withSources(),
   "org.specs2" %% "specs2-matcher-extra" % `specs2-version` withSources(),
   "org.specs2" %% "specs2-junit" % `specs2-version` withSources(),
-  "org.scalatest" %% "scalatest" % `scalactic-version` withSources()
+  "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
 
 assemblyMergeStrategy in assembly := {
