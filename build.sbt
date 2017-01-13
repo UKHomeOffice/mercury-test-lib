@@ -8,6 +8,8 @@ fork in run := true
 
 fork in Test := true
 
+publishArtifact in Test := true
+
 scalacOptions ++= Seq(
   "-feature",
   "-language:implicitConversions",
