@@ -1,4 +1,5 @@
 import ReleaseTransformations._
+import sbtrelease.Version
 
 name := "test-scala-lib"
 
@@ -47,15 +48,17 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
 
+releaseVersion     := { ver => Version(ver).map(_.withoutQualifier.string.drop(1)).getOrElse("Invalid version format") }
+
 releaseProcess := Seq[ReleaseStep](
-  checkSnapshotDependencies,              // : ReleaseStep
-  inquireVersions,                        // : ReleaseStep
-  runTest,                                // : ReleaseStep
-  setReleaseVersion,                      // : ReleaseStep
-  commitReleaseVersion,                   // : ReleaseStep, performs the initial git checks
-  tagRelease,                             // : ReleaseStep
-  //publishArtifacts,                       // : ReleaseStep, checks whether `publishTo` is properly set up
-  setNextVersion,                         // : ReleaseStep
-  commitNextVersion,                      // : ReleaseStep
-  pushChanges                             // : ReleaseStep, also checks that an upstream branch is properly configured
+  checkSnapshotDependencies,
+  inquireVersions,
+  runTest,
+  setReleaseVersion,
+  commitReleaseVersion,       // ReleaseStep which performs the initial git checks
+  tagRelease,
+  // publishArtifacts,        // ReleaseStep which checks whether `publishTo` is properly set up
+  setNextVersion,
+  commitNextVersion,
+  pushChanges                 // ReleaseStep which also checks that an upstream branch is properly configured
 )
