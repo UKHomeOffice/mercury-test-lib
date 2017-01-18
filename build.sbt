@@ -44,3 +44,5 @@ libraryDependencies ++= Seq(
   "org.specs2" %% "specs2-junit" % `specs2-version` withSources(),
   "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
+
+lazy val root = project.in(file("."))
