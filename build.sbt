@@ -1,5 +1,4 @@
 import ReleaseTransformations._
-import sbtrelease.Version
 
 name := "test-scala-lib"
 
@@ -48,13 +47,10 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
 
-import sbtrelease._
+//import sbtrelease._
 
-releaseVersion     := { ver =>
-  val v = Version(ver).map(_.withoutQualifier.string).getOrElse(versionFormatError)
-  println(s"===> $v")
-  v
-}
+
+releaseTagName := s"${if (releaseUseGlobalVersion.value) (version in ThisBuild).value else version.value}"
 
 
 releaseProcess := Seq[ReleaseStep](
