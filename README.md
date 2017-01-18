@@ -79,7 +79,7 @@ where the following default value will be chosen:
 
 You can set the release version using the argument release-version and next version with next-version.
 
-Example:
+Example (within sbt):
 ```
 release release-version 1.0.99 next-version 1.2.0-SNAPSHOT
 ```

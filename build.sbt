@@ -47,11 +47,8 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
 
-//import sbtrelease._
-
-
+// Overridden to not include "v" prefix i.e. default would have been v1.2.0 but instead we get 1.2.0
 releaseTagName := s"${if (releaseUseGlobalVersion.value) (version in ThisBuild).value else version.value}"
-
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
