@@ -83,3 +83,8 @@ Example (within sbt):
 ```
 release release-version 1.0.99 next-version 1.2.0-SNAPSHOT
 ```
+
+or
+```
+release with-defaults
+```
