@@ -48,7 +48,10 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % `scalatest-version` withSources()
 )
 
-releaseVersion     := { ver => Version(ver).map(_.withoutQualifier.string.drop(1)).getOrElse("Invalid version format") }
+releaseVersion     := { ver =>
+  println(s"===> $ver")
+  Version(ver).map(_.withoutQualifier.string).getOrElse("Invalid version format")
+}
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
