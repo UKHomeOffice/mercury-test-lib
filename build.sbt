@@ -1,4 +1,4 @@
-name := "test-scala-lib"
+name := "mercury-test-lib"
 
 organization := "uk.gov.homeoffice"
 
